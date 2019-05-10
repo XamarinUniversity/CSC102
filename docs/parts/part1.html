@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Exercise 1: Parsing</title>
+    <link rel="stylesheet" type="text/css" href="./res/styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./res/styles/prettify.css" />
+    <link rel="stylesheet" type="text/css" href="./res/styles/styles.css">
+</head>
+
+<body>
+    <!-- Use the same title as the StartHere -->
+    <header>Learning C# with Xamarin: Branching and Looping</header>
+
+   	<section id="main">
+
+		<h1 id="page-title"></h1>
+
+		<h2>Duration</h2>
+		<p>15 minutes</p>
+
+		<!-- - - - - - - - - Goals - - - - - - - - -->
+
+		<h2 id="goals">Lab goals</h2>
+
+		<p>
+			Here you will implement a program to read the user's age. The age will arrive in your program as a
+			string so you will need to convert it to an integer. Once the age is in integer format, you can
+			use it in mathematical expressions. You will then convert the integer back to a string and display
+			it to the user. The high-level goals for the exercise are listed below:
+		</p>
+
+		<ul>
+			<li>Read user input.</li>
+			<li>Convert a string to an integer.</li>
+			<li>Convert an integer to a string.</li>
+		</ul>
+
+		<p>
+			Below is the output from the finished application.
+		</p>
+		<img src="./res/images/Part1.Completed.png" alt="- - - - - - - - - MISSING IMAGE - - - - - - - - - -" />
+
+		<!-- - - - - - - - - Supplied resources - - - - - - - - -->
+
+		<h2>Required assets</h2>
+		<p>
+			The provided <strong>Exercise 1/Part1.Completed</strong> folder contains a completed version
+			of the exercise you can use to check your work. Please make sure you have this folder before you begin.
+		</p>
+
+		<div class="hintblock">
+			<strong>Tip:</strong> If you are doing this exercise live in a session, make sure to make good use
+			of the instructor, they are online to answer any questions you have!
+		</div>
+
+		<!-- - - - - - - - - Steps - - - - - - - - -->
+
+		<h1 id="steps">Steps</h1>
+
+		<p>
+			Below are the step-by-step instructions to implement the exercise.
+		</p>
+
+		<h2>Create a new Console application</h2>
+		<ol>
+			<li>
+				Start <strong>Visual Studio</strong>.
+			</li>
+
+			<li>
+				Create a new <strong>Console Project</strong> using either the <strong>New Solution...</strong> link on the home screen
+				or the <strong>File &gt; New &gt; Solution</strong> menu entry.
+			</li>
+
+			<li>
+				Name the Project and Solution <strong>Parse</strong>. The word <em>parse</em> has several meanings in Computer Science.
+				In this context, it is referring to the process of analyzing the input string and computing the corresponding integer
+				value.
+			</li>
+
+			<li>
+				Fill in the <strong>Location</strong> field with the name of the folder where you would like to store your work.
+			</li>
+
+			<li>
+				Click <strong>OK</strong>.
+			</li>
+		</ol>
+
+		<h2>Implement your program</h2>
+		<ol>
+			<li>
+				The file <strong>Program.cs</strong> should already be open in the text editor. If it is not, open it
+				by double-clicking on the filename in the Solution view.
+			</li>
+
+			<li>
+				Please delete the <code>Console.WriteLine</code> line that Visual Studio generated inside <code>Main</code>.
+			</li>
+
+			<li>
+				All your code will be written inside the curly braces that delimit <code>Main</code>.
+				Position the cursor in the text-editor window on the line below the open-curly-brace for
+				<code>Main</code>.
+			</li>
+
+			<li>
+				Use <code>Console.Write</code> to print out a prompt to the user asking them to enter their
+				age. Using <code>Console.Write</code> will leave the cursor on the same line as the prompt
+				which should be a more intuitive experience for the user. Note that there is nothing wrong
+				with using <code>Console.WriteLine</code> here instead, it is mainly personal preference
+				about the way it looks to the user (if you have time, feel free to try using
+				<code>Console.WriteLine</code> and see how it behaves).
+			</li>
+
+			<li>
+				The <strong>Console</strong> window is text based so everything you read from it arrives as
+				a string. There is no way to say "read an integer from the Console" you can only say "read
+				a line from the Console and give it to me as a string". Use <code>Console.ReadLine</code>
+				to read the user's age. Store the returned value in a <code>string</code> variable named
+				<code>yourAge</code>.
+			</li>
+
+			<li>
+				Converting a string to an integer would be a tedious process if you had to do it manually.
+				For example, to convert the string <code>"457"</code> to the integer <code>457</code> you
+				would need to figure out which digit was in the ones place, which digit was in the tens place,
+				etc. Then you would compute <code>4 * 100 + 5 * 10 + 7</code>. Luckily, the standard library
+				does this for you (see below). In your program, use the <code>Parse</code> method to convert
+				the user's age from a string to an integer, then store the result in an <code>int</code>
+				variable named <code>yourAgeAsInt</code>.
+<pre class="prettyprint">
+string s = 457;
+int i = int.Parse(s);
+</pre>
+			</li>
+
+			<li>
+				[Optional] Now that you have the user's age as an integer, you can use it in mathematical
+				expressions. Include a line in your program that adds <code>1</code> to the <code>yourAgeAsInt</code>
+				variable. This operation could not be performed on the string value so it is good motivation
+				for why conversions from string to integer are needed.
+			</li>
+
+			<li>
+				Now you need to convert the integer back to a string and print it to the console.
+				The code below shows how to do the conversion manually - this is the technique you
+				should use here.
+<pre class="prettyprint">
+int i = 3;
+string s = i.ToString();
+</pre>
+
+				Note that you may have already seen a shorter way to achieve this same goal by letting the
+				<code>WriteLine</code> method automatically convert your data into strings (see below).
+				Do not use this shorter technique here; please use the manual process (i.e. the
+				<code>ToString</code> method shown above) to convert the integer into a string.
+<pre class="prettyprint">
+int i = 3;
+Console.WriteLine("The value is {0}", i);
+</pre>
+				Once you have the age as a string, use <code>Console.WriteLine</code> to display it to the user.
+
+			</li>
+
+			<li>
+				Run your program by clicking on the <strong>Run &gt; Start Without Debugging</strong> menu entry
+				(recall that clicking on <strong>Start Without Debugging</strong> actual does three things: saves
+				your work, builds your project, and runs your program).
+				A Console window should appear on your screen and display the program output as shown below.
+				<img class="indent-none" src="./res/images/Part1.Completed.png" alt="- - - - - - - - - MISSING IMAGE - - - - - - - - - -" />
+			</li>
+
+		</ol>
+
+		<!-- - - - - - - - - Summary - - - - - - - - -->
+
+		<h1>Summary</h1>
+		In this lab, you converted data between strings and numeric types. This core skill is useful beyond
+		the <strong>Console</strong> project used here. For example, if your application had a Graphical
+		User Interface, the user would likely enter their age into a text field which would return the value
+		to you as a string; you would then need to convert the string to an integer just like you did in this
+		exercise.
+		<br />
+		<br />
+
+		<div class="align-right">
+			<a href="../Start%20Here.html">Go Back</a>
+		</div>
+
+	</section>
+
+    <script src="./res/js/jquery.min.js"></script>
+    <script src="./res/js/prettify.js"></script>
+    <script src="./res/js/script.js"></script>
+
+    <footer>Copyright (C) 2018 Xamarin Inc., Microsoft.</footer>
+</body>
+</html>
